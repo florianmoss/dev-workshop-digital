@@ -1,16 +1,17 @@
 ## OpenShift for Developers - Digital
 
-- Chapters 1 and 2 introduce OpenShift, its components, and its concepts.
-- Chapter 3 shows you how to run OpenShift on your computer so that you have a virtual cluster to conduct the book’s exercises.
-- In Chapter 4, you’ll configure OpenShift to fetch the source code for a simple Hello World application, build it into a container image, and run it.
-- Chapter 5 introduces OpenShift Pipelines, a framework for composing Continu‐ ous Integration and Continuous Deployment (CI/CD) routines, and shows you how to add Pipelines to your cluster.
-- In Chapter 6, you’ll deploy a more realistic application with a tiered architecture and multiple components.
-- In Chapter 7, you’ll augment the application’s backend to retain data between sessions.
-- Chapter 8 shows you how to examine, manipulate, and scale the running application both manually and automatically, how to set up OpenShift to periodically check application health, and how to govern the rollout of new versions of your application.
-- Chapter 9 is a high-level overview of OpenShift’s monitoring and alerting facilities.
-- Chapter 10 dissects OpenShift automation features you used along the way to set you on the path toward eliminating toil by letting the platform do the repetitive work.
+📫 &nbsp; Content
+- **Chapters 1️⃣** &nbsp; and &nbsp; **2️⃣** &nbsp; introduce OpenShift, its components, and its concepts.
+- **Chapter 3️⃣** &nbsp; shows you how to run OpenShift on your computer so that you have a virtual cluster to conduct the book’s exercises.
+- In **Chapter 4️⃣** &nbsp;, you’ll configure OpenShift to fetch the source code for a simple Hello World application, build it into a container image, and run it.
+- **Chapter 5️⃣** &nbsp; introduces OpenShift Pipelines, a framework for composing Continuous Integration and Continuous Deployment (CI/CD) routines.
+- In **Chapter 6️⃣** &nbsp;, you’ll deploy a more realistic application with a tiered architecture and multiple components.
+- [removed] In Chapter 7, you’ll augment the application’s backend to retain data between sessions.
+- **Chapter 8️⃣** &nbsp; shows you how to examine, manipulate, and scale the running application both manually and automatically, how to set up OpenShift to periodically check application health, and how to govern the rollout of new versions of your application.
 
-### A Kubernetes Application Platform
+💡 &nbsp; Hands-on work starts [here](#openshift-lab) &nbsp; 💡
+
+### 1️⃣ &nbsp; A Kubernetes Application Platform
 OpenShift gives your applications distributed computing power without forcing you to become a distributed computing expert. Translated into jargon, that means OpenShift is a platform as a service (PaaS).
 
 OpenShift includes tools for building applications from source in composable pipelines. It adds a browser-based graphical interface, the OpenShift Web Console, for deploying and managing workloads. You can point and click to set up network connections, monitoring and alerts, and rules for automatically scaling workloads. An OpenShift cluster applies software updates to itself and its nodes without cluster downtime.
@@ -57,7 +58,7 @@ OpenShift builds atop its Kubernetes core to add features and the components tha
   OpenShift also has a bolt-on service mesh, Istio. A service mesh measures and con‐ trols how services connect with one another and the outside world.
 
   #### Integrated Prometheus Metrics, Monitoring, and Alerts
-  OpenShift constructs its features for monitoring cluster resources atop the open- source Prometheus project. The Web Console presents graphs showing CPU, mem‐ ory, and network usage for the whole cluster, a project, a deployment, or all the way down to a running container. Figure 1-3 shows the CPU usage of a deployment.
+  OpenShift constructs its features for monitoring cluster resources atop the open-source Prometheus project. The Web Console presents graphs showing CPU, mem‐ ory, and network usage for the whole cluster, a project, a deployment, or all the way down to a running container. Figure 1-3 shows the CPU usage of a deployment.
 
   ![Image1-3](/images/image1-3.png)
 
@@ -66,7 +67,7 @@ OpenShift builds atop its Kubernetes core to add features and the components tha
   #### Summary
   You’ve seen how OpenShift layers developer tools and application management atop Kubernetes to make it easier to deliver your software and keep it running. The next chapter introduces key concepts for building and deploying applications on OpenShift.
 
-  ### OpenShift Concepts
+  ### 2️⃣ OpenShift Concepts
   OpenShift is a superset of Kubernetes. Kubernetes concepts, commands, and practi‐ ces work on OpenShift. You can do any of the usual kubectl operations in the Open‐ Shift API. The reverse is not true. OpenShift has features and entire workflows that are not part of Kubernetes. For example, BuildConfig and Build resources in the OpenShift API represent the configuration and iterative executions of a process to build an application. They are not in the Kubernetes API, because Kubernetes doesn’t define a mechanism for compiling software and assembling container images. OpenShift adds these two types of resources and the facilities that use them. Likewise, while Kubernetes has a namespace to organize resources, OpenShift augments the namespace to form the Project. A Project demarcates access boundaries for clusters occupied by multiple tenants and serves as a discrete unit for administrative policy.
 
   Kubernetes establishes the components of a container orchestrator and a way of addressing them. OpenShift builds on that foundation, adding tools and abstractions for the developers who build the apps that run on the cluster. Keeping those apps running is the reason the cluster exists.
@@ -123,7 +124,7 @@ OpenShift builds atop its Kubernetes core to add features and the components tha
   #### Summary
   Now that you understand the relationship between OpenShift’s developer features and its Kubernetes core, you’re ready to put them to work.
 
-  ### OpenShift Lab
+  ### 3️⃣ &nbsp; OpenShift Lab
   Log in to the OpenShift console via the instructions shared in the workshop.
 
   #### OpenShift Web Console
@@ -161,13 +162,13 @@ OpenShift builds atop its Kubernetes core to add features and the components tha
   There is also a VSCode connector for the oc tool
   ```
 
-  ### Deploying an Application on OpenShift
+  ### 4️⃣ &nbsp; Deploying an Application on OpenShift
   You’ve got a handle on OpenShift concepts and you have access to an OpenShift cluster. Now you’ll use OpenShift to create a project, build the project’s application from source, and run it.
 
   #### A Simple Sample Application
   We will honor tech tradition by beginning with a “Hello World” program. This chapter’s simple program runs an HTTP service that prints a response to each request. We’ve selected the Go programming language because it compiles quickly and to demonstrate more than one language environments. You’ll use the Java Quarkus framework to build a more complex application in later chapters. OpenShift techniques you’ll use throughout the book, like on-cluster builds and automatic deployment, are largely agnostic about the language and frameworks you choose for a project.
 
-  First, get a copy of the source code for the Hello World application. You’ll use Git to manage the source and GitHub to make your copy available for your cluster to build. Point your browser [to this chapter’s GitHub repository](https://github.com/openshift-for-developers/hello) to this chapter’s GitHub repository. Fork a copy to your own GitHub account with the Fork button at the top right. In Git terms, a “fork” is an exact copy of a repository at a point in time. You can modify your fork to create your own version or to make, test, and submit changes back to the original repo. You’ll use Git in this chapter, but you don’t need deep Git expertise; the following extremely brief overview of Git words and ways should get you started.
+  First, get a copy of the source code for the Hello World application. You’ll use Git to manage the source and GitHub to make your copy available for your cluster to build. Point your browser [to this chapter’s GitHub repository](https://github.com/florianmoss/hello) to this chapter’s GitHub repository. **Fork a copy to your own GitHub account** with the Fork button at the top right. In Git terms, a “fork” is an exact copy of a repository at a point in time. You can modify your fork to create your own version or to make, test, and submit changes back to the original repo. You’ll use Git in this chapter, but you don’t need deep Git expertise; the following extremely brief overview of Git words and ways should get you started.
 
   #### Building and Deploying the Application on OpenShift
   The first thing you need is an OpenShift Project to contain the application resources. Log in to your cluster web console. There, the default account is “developer” and the password is also “developer”.
@@ -190,7 +191,7 @@ OpenShift builds atop its Kubernetes core to add features and the components tha
 
   Since you haven’t deployed anything, the Topology view will try to help out with a grid of things you might want to deploy. Choose From Git.
 
-  The console will present a Git build configuration dialog, similar to that seen in Figure 4-3. Enter the URL of your forked Hello World source in your GitHub account: for example, https://github.com/<your-name>/hello.git. When you do, OpenShift will check the contents of the repository and, for known languages, will automatically select the appropriate Builder Image containing the compiler and other tools to build it.
+  The console will present a Git build configuration dialog, similar to that seen in Figure 4-3. Enter the URL of your forked Hello World source in your GitHub account: for example, **`https://github.com/<your-name>/hello.git`**. When you do, OpenShift will check the contents of the repository and, for known languages, will automatically select the appropriate Builder Image containing the compiler and other tools to build it.
 
   ![Image4-3](/images/image4-3.png)
 
@@ -225,7 +226,7 @@ In later chapters, you’ll see how to set and change deployment strategies to k
 ##### Changing hello source
 To address the text-change ticket, you need to change a string in the application source. If you’re a Git veteran, you may have cloned the repo to your local machine, and you already know how to edit with your preferred tool, commit, and push back to your GitHub repo. If that process isn’t familiar to you, don’t worry; for now, the needed change is simple enough to do it quickly in the GitHub web editor, and we will show you how to clone, change, commit, and send your changes back to your publicly visible GitHub repository before you need to do more involved coding.
 
-Open the Go source file for your Hello World application, hello-openshift-for- developers.go, in your browser. Your copy will be at https://github.com/<your-name>/hello/blob/main/hello-openshift-for-developers.go. 
+Open the Go source file for your Hello World application, `hello-openshift-for-developers.go`, in your browser. Your copy will be at `https://github.com/<your-name>/hello/blob/main/hello-openshift-for-developers.go`. 
 
 Change line 12 to "Hello World" as seen below. Make sure to commit your changes.
 
@@ -250,7 +251,7 @@ As shown in Figure 4-13, when the build completes, clicking on the URL icon in t
 
 ![Image4-13](/images/image4-13.png)
 
-### OpenShift Pipelines
+### 5️⃣ &nbsp; OpenShift Pipelines
 OpenShift Pipelines is a CI/CD system based on the open source Tekton project. With Pipelines, you can trigger repeatable builds when source code changes, integrate tests into the process, and configure automatic redeployment strategies, from rolling updates to traffic-splitting A/B testing on a single cluster.
 
 In this chapter, you’ll see how Pipelines integrates Tekton fundamentals with Open‐ Shift to make it easier to create and manage stepwise build and deployment processes.
@@ -265,9 +266,9 @@ In the Web Console Developer perspective, you can create pipeline tasks and sele
 
 Similar to the oc tool, we will be using the terminal in the OpenShift console.
 
-```bash
-# If you are a VS coder, be sure to check out the extension for Tekton Pipelines in addition to the OpenShift Connector for Visual Studio Code that we mentioned in Chapter 3. This extension allows you to graphically build a pipeline, and it connects to Tekton Hub for reusable pipelines and tasks shared by the community.
-```
+
+> If you are a VS coder, be sure to check out the extension for Tekton Pipelines in addition to the OpenShift Connector for Visual Studio Code that we mentioned in Chapter 3. This extension allows you to graphically build a pipeline, and it connects to Tekton Hub for reusable pipelines and tasks shared by the community.
+
 
 #### OpenShift Pipelines Resources
 Tekton constructs pipelines from a list of Tasks, and therefore the Task is the basic unit of OpenShift Pipelines as well. 
@@ -306,7 +307,7 @@ A script puts an executable script inline so that a single Step that must run se
 
 Pipelines use other custom and native resources, like PersistentVolumes and claims, along with a set of parameters allowing for data persistence configuration of programs and scripts running in Steps or even between pod-isolated Tasks. Still, this look at the main elements should give you enough traction to apply pipelines in the next chapter to build an application with multiple components.
 
-### Developing and Deploying from Source Code
+### 6️⃣ &nbsp; Developing and Deploying from Source Code
 Now that your local OpenShift has OpenShift Pipelines installed, you’re ready to deploy a multitier application. This app is more complex than your initial “Hello World” service from Chapter 4, as it has two components that need to communicate. The app also has been designed to eventually incorporate a database, as you will see in Chapter 7. You will hand some of these complexities off to a pipeline to automate some of the repetitive tasks of building and rebuilding the application through several iterations.
 
 #### Noted: A Cloud-Ready Notes Application
@@ -342,15 +343,15 @@ project and then by clicking Create Project, as shown in Figure 6-3.
 ![Image6-3](/images/image6-3.png)
 
 3. Configure the new Project as follows:
-   1. Name: o4d-noted
-   2. Display Name: OpenShift for Developers note
-   3. Description: The Noted Application for the OpenShift for Developers
+   1. Name: `o4d-noted`
+   2. Display Name: `OpenShift for Developers note`
+   3. Description: `The Noted Application for the OpenShift for Developers`
 
 #### Deploy the Backend Component
 
 Now deploy the quarkus-backend component to the new Project by clicking the +Add from the menu bar. Select the "Import from Git" tile. The main branch is what you will initially deploy, which is configured to operate without a database.
 
-Next, configure the new application component. For the Git Repo URL, enter https://github.com/<your-name>/quarkus-backend.git. Click on “Show advanced Git options”; for “Git reference,” enter main; and for “Context dir,” enter /. Leave the Source Secret box empty. See Figure 6-4.
+Next, configure the new application component. For the Git Repo URL, enter `https://github.com/<your-name>/quarkus-backend.git`. Click on “Show advanced Git options”; for “Git reference,” enter main; and for “Context dir,” enter /. Leave the Source Secret box empty. See Figure 6-4.
 
 ![Image6-4](/images/image6-4.png)
 
@@ -453,12 +454,12 @@ The spec defines the parameters that are used in the pipeline. This configuratio
       Name:  s2i-java
 ```
 
-The Task stanza of the pipeline configuration lists all of the tasks that will be pro‐ cessed for this pipeline. Recall that Tasks execute in parallel unless they are configured to wait on each other, as shown by the Run After field in the preceding code.
+The Task stanza of the pipeline configuration lists all of the tasks that will be processed for this pipeline. Recall that Tasks execute in parallel unless they are configured to wait on each other, as shown by the Run After field in the preceding code.
 
 #### Deploy the Frontend Component
 Now you will deploy the frontend component of the Noted application.
 
-In the Developer console, click +Add in the left column and choose the From Git tile. To configure the new nodejs-frontend component, enter https://github.com/openshift-for-developers/nodejs-frontend.git. Click “Show advanced Git options”; for “Git reference” enter main, and for “Context dir” enter /. Leave the Source Secret box empty.
+In the Developer console, click +Add in the left column and choose the From Git tile. To configure the new nodejs-frontend component, enter `https://github.com/openshift-for-developers/nodejs-frontend.git`. Click “Show advanced Git options”; for “Git reference” enter main, and for “Context dir” enter /. Leave the Source Secret box empty.
 
 Under Builder, make sure Node.js is selected. Under General, in the Application box enter noted, and in the Name box enter nodejs-frontend.
 
@@ -509,7 +510,7 @@ To configure a trigger, in the Developer console, click Pipelines in the left co
 
 ![Image6-11](/images/image6-11.png)
 
-Now you’ll configure the new trigger. Under Webhook, enter github-push for “Git Provider type.” Under Parameters, enter quarkus-backend for APP_Name, https://github.com/<your-name>/quarkus-backend.git for GIT_REPO, and main for GIT_REVISION. Do not change the image_name, path_context, version, or work‐ space configuration. When you’re finished, click Add (see Figure 6-12).
+Now you’ll configure the new trigger. Under Webhook, enter github-push for “Git Provider type.” Under Parameters, enter quarkus-backend for APP_Name, `https://github.com/<your-name>/quarkus-backend.git` for GIT_REPO, and main for GIT_REVISION. Do not change the image_name, path_context, version, or work‐ space configuration. When you’re finished, click Add (see Figure 6-12).
 
 ![Image6-12](/images/image6-12.png)
 
@@ -534,7 +535,7 @@ You need to configure GitHub to notify the trigger’s event listener.
 #### The Reversed Text Quarkus-Backend Bug Fix
 Now that your automation is configured, you can fix the title and content bug from earlier. The /posts endpoint is in the quarkus-backend Post.java source file.
 
-1. First, open your quarkus-backend repository on GitHub and head to src/main/ java/com/openshift/fordevelopers/Post.java.
+1. First, open your quarkus-backend repository on GitHub and head to `src/main/java/com/openshift/fordevelopers/Post.java`.
 
     Notice that lines 26 through 32 reverse the title and content strings:
 
@@ -577,7 +578,7 @@ Now, add a post or two. As shown in Figure 6-21, you should notice that the titl
 
 You might have noticed that all data was lost when we re-created the backend. Pods/Containers are ephemeral and don't store any data. You are not to manage databased, that's why we will ignore data persistence for this tutorial.
 
-### Production Deployment and Scaling
+### 8️⃣ &nbsp; Production Deployment and Scaling
 Now that you have deployed the Noted application, we can talk about some basic tasks that you might need to perform to make the platform work for your app. 
 
 First you will need to scale the quarkus-backend component to run multiple instances and handle more load. Since a few instances of your backend component will be running, we will discuss how OpenShift can deploy updates to the fleet and potentially roll out an update to your app with zero downtime using the proper deployment strategy for your specific application. OpenShift also has robust health checking built in to make sure things are running as expected, which we’ll cover in this chapter as well.
@@ -588,7 +589,7 @@ OpenShift has some powerful built-in mechanisms in place that allow your applica
 ##### Manual Scaling
 Manually scaling the quarkus-backend deployment is a quick and easy way for your application to be able to handle more load.
 
-Open the Topology view to manually scale the quarkus-backend. Select “quarkus- backend,” and click the Details tab in the slideout. Then click the ^ icon to deploy at least two quarkus-backend pods, as shown in Figure 8-1.
+Open the Topology view to manually scale the quarkus-backend. Select “quarkus-backend,” and click the Details tab in the slideout. Then click the ^ icon to deploy at least two quarkus-backend pods, as shown in Figure 8-1.
 
 ![Image8-1](/images/image8-1.png)
 
@@ -685,22 +686,23 @@ Now you are able to configure the health checking within OpenShift. This will in
 
     Next, you will choose a series of thresholds:
 
-    Failure threshold: 3
+    `Failure threshold: 3`
+
         The failure threshold is how many times the probe will try starting or restart‐ ing before giving up.
 
-    Success threshold: 1
+    `Success threshold: 1`
 
         The success threshold is how many consecutive successes are required for the probe to be considered successful after having failed.
 
-    Initial delay: 30 seconds
+    `Initial delay: 30 seconds`
 
         The initial delay is how long to wait after the container starts before checking its health.
     
-    Period: 10 seconds
+    `Period: 10 seconds`
 
         The period is how often to perform the probe
 
-    Timeout: 1 second
+    `Timeout: 1 second`
 
         The timeout is how long to wait for the probe to finish. If the time is excee‐ ded, the probe will be considered a failure.
 
@@ -747,22 +749,3 @@ Open the Developer console Topology view.
 Select “quarkus-backend,” and in the Actions menu, click Edit Update Strategy. Notice how to change the strategy, and then click Cancel, as shown in Figure 8-13.
 
 ![Image8-13](/images/image8-13.png)
-
-#### Deployment Rollbacks
-OpenShift makes it easy to roll back a deployment if something doesn’t work cor‐ rectly with your rolled-out version. You can use the OpenShift command line to determine the rollout history for a specific deployment and then perform the roll‐ back, as shown here (the latest revision will be at the end of the rollout history list):
-
-```bash
-bash-4.4 ~ $ oc rollout history deployment/quarkus-backend
-deployment.apps/quarkus-backend 
-REVISION  CHANGE-CAUSE
-1         <none>
-2         <none>
-3         <none>
-4         <none>
-5         <none>
-
-bash-4.4 ~ $ oc rollout undo deployment/quarkus-backend --to-revision=<Revision Number>
-    deployment.apps/quarkus-backend rolled back
-```
-
-While your revision numbers may differ, you can validate that the quarkus-backend has been rolled back by listing the history again:
